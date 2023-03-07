@@ -1,0 +1,44 @@
+@media screen and (min-width: 200px) {
+    #padreApi {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .cardApi {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @include sizes (300px, 500px);
+        background-color: red;
+        &__img {
+            @include sizes (200px, 200px);
+        }
+        &__h1 {
+            color: red;
+            font-size: 30px;
+        }
+        &__btn {
+            border: solid 2px yellow;
+            color: white;
+            background-color: blue;
+        }
+    }
+}
+
+@media screen and (min-width: 700px) {
+    #padreApi {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #padreApi {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
