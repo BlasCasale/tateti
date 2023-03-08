@@ -1,44 +1,54 @@
-@media screen and (min-width: 200px) {
-    #padreApi {
+@media screen and (min-width: 300px) {
+    #padreTateti {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
         justify-content: center;
         align-items: center;
+        padding: 30px;
+    }
+    .tatetiHijo {
+        @include sizes (100px, 100px);
+        @include flexCenCen;
+        border: solid 3px white;
+    }
+    #jugadores {
+        @include flexCenCen;
+        gap: 10px;
+    }
+    #turno {
+        @include flexCenCen;
+    }
+    .cajaJugador {
+        border: solid 2px white;
+        padding: 5px;
         gap: 20px;
     }
-    .cardApi {
+    #puntaje1,
+    #puntaje2 {
+        font-size: 1.5rem;
+        color: white;
+    }
+    .cajaJugadores {
+        @include flexColCenCen;
+        width: 300px;
+        gap: 20px;
+    }
+    .cajaSimbolos {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        @include sizes (300px, 500px);
-        background-color: red;
-        &__img {
-            @include sizes (200px, 200px);
-        }
-        &__h1 {
-            color: red;
-            font-size: 30px;
-        }
-        &__btn {
-            border: solid 2px yellow;
-            color: white;
-            background-color: blue;
-        }
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .simbolos {
+        @include sizes (90px, 90px)
     }
 }
 
 @media screen and (min-width: 700px) {
-    #padreApi {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+
 }
 
 @media screen and (min-width: 1024px) {
-    #padreApi {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+
 }
 

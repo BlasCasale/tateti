@@ -2,3 +2,20 @@
     width: $ancho;
     height: $alto;
 }
+@mixin flexCenCen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flexRowCenCen {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flexColCenCen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
