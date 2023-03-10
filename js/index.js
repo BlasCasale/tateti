@@ -70,7 +70,7 @@ const crearJugadores = () => {
 }
 
 // con esto creo el html para poder elegir el simbolo que usa cada jugador 
-const elegirSimbolo = () => {
+const crearSimbolo = () => {
 
     const div = document.createElement('div')
     div.classList.add('cajaJugadores')
@@ -87,7 +87,7 @@ const elegirSimbolo = () => {
     btn2.setAttribute('id', 'simbolo2')
 
     const simbolo1 = document.createElement('img')
-    const simbolo2= document.createElement('img')
+    const simbolo2 = document.createElement('img')
 
     simbolo1.classList.add('simbolos')
     simbolo2.classList.add('simbolos')
@@ -168,8 +168,6 @@ btn.addEventListener('click', () => {
         jugadores.append(input2)
         jugadores.append(btn2)
     }
-    
-
 })
 
 btn2.addEventListener('click', ()=>{
@@ -186,7 +184,7 @@ btn2.addEventListener('click', ()=>{
 
             crearJugadores()
 
-            elegirSimbolo()
+            crearSimbolo()
         }
 })
 
@@ -196,20 +194,16 @@ const simbolo1 = document.getElementById('simbolo1')
 const simbolo2 = document.getElementById('simbolo2')
 
 simbolo1.addEventListener('click', () => {
-    simboloJugador1 = equis
-    simboloJugador2 = circulo
 
-    turno.innerHTML = ""
-    elegirJugador ()
 })
 
-simbolo2.addEventListener('click', () => {
-    simboloJugador1 = circulo
-    simboloJugador2 = equis
+// simbolo2.addEventListener('click', () => {
+//     // simboloJugador1 = circulo
+//     // simboloJugador2 = equis
 
-    turno.innerHTML = ""
-    elegirJugador()
-})
+//     // turno.innerHTML = ""
+//     // elegirJugador()
+// })
 
 
 // aca hago el codigo de quien empieza
