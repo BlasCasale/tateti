@@ -1,5 +1,5 @@
 @media screen and (min-width: 300px) {
-    #padreTateti {
+    .tateti {
         display: grid;
         grid-template-columns: repeat(3, 100px);
         grid-template-rows: repeat(3, 100px);
@@ -17,6 +17,9 @@
         gap: 10px;
     }
     #turno {
+        @include flexCenCen;
+    }
+    #primerTurno {
         @include flexCenCen;
     }
     .cajaJugador {

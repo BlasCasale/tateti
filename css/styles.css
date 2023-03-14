@@ -42,7 +42,7 @@ p {
 }
 
 @media screen and (min-width: 300px) {
-  #padreTateti {
+  .tateti {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
@@ -65,6 +65,11 @@ p {
     gap: 10px;
   }
   #turno {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #primerTurno {
     display: flex;
     justify-content: center;
     align-items: center;

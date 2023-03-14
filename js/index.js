@@ -23,9 +23,13 @@ const circulo = `img/circulo.webp`
 const jugadores = document.getElementById('jugadores')
 const padreTateti = document.getElementById('padreTateti')
 const turno = document.getElementById('turno')
+const primerTurno = document.getElementById('primerTurno')
 
 
 // funciones 
+
+// con esto busco los id de cada uno de los btn para evitar saltos inesperados
+
 
 // simplifico alerta para no repetir exactamente lo mismo
 const alertaNegativa = () => {
@@ -42,6 +46,16 @@ const alertaNegativa = () => {
         },
         stopOnFocus: true,
     }).showToast()
+}
+
+const corroborarSimbolo = () => {
+    if (simboloJugador1 != undefined) {
+        turno.innerHTML = ""
+        elegirJugador()
+    }else {
+        turno.innerHTML = ""
+        crearSimbolo()
+    }
 }
 
 // aca con los datos ya capturados, creo el html para mostrar los nombres y puntajes
@@ -83,8 +97,8 @@ const crearSimbolo = () => {
 
     const btn = document.createElement('button')
     const btn2 = document.createElement('button')
-    btn.setAttribute('id', 'simbolo1')
-    btn2.setAttribute('id', 'simbolo2')
+    btn.setAttribute('id', 'simboloUno')
+    btn2.setAttribute('id', 'simboloDos')
 
     const simbolo1 = document.createElement('img')
     const simbolo2 = document.createElement('img')
@@ -113,21 +127,38 @@ const elegirJugador = () => {
     
     h2.innerText = `¿Quien comienza?`
     
-    btn.innerText = `Jugador 1`
+    btn.innerText = `${nombreJugador1}`
     btn.setAttribute('id', 'jugador1')
     
-    btn2.innerText = `Jugador 2`
+    btn2.innerText = `${nombreJugador2}`
     btn2.setAttribute('id', 'jugador2')
     
-    padreTateti.appendChild(div)
+    primerTurno.appendChild(div)
     div.append(h2, btn, btn2)
 }
 
 // con esto voy a decir a quien le toca empezar
 
-const decirTurno = () => {
+const decirTurno = (param) => {
     const h3 = document.createElement('h3')
-    h3.innerText = `Es el turno de ${turnoDelJugador}`
+    h3.innerText = `Es el turno de ${param}`
+    turno.append(h3)
+}
+
+// creo el tateti
+
+const crearTateti = () => {
+    const div = document.createElement('div')
+    div.classList.add('tateti')
+    padreTateti.append(div)
+    let i = 1
+    for (let index = 0; index < 9; index++) {
+        const htmlDelTateti = document.createElement('div')
+        htmlDelTateti.classList.add('tatetiHijo')
+        htmlDelTateti.setAttribute('id', `${i}`)
+        div.append(htmlDelTateti)
+        i++
+    }
 }
 
 
@@ -188,35 +219,40 @@ btn2.addEventListener('click', ()=>{
         }
 })
 
+// aca voy a elegir el simbolo para cada jugador
+turno.addEventListener('click', () => {
 
-// aca hago el codigo para elegir el simbolo
-const simbolo1 = document.getElementById('simbolo1')
-const simbolo2 = document.getElementById('simbolo2')
+    const simboloUno = document.getElementById('simboloUno')
+    const simboloDos = document.getElementById('simboloDos')
 
-simbolo1.addEventListener('click', () => {
+    simboloUno.addEventListener('click', () => {
+        simboloJugador1 = equis
+        simboloJugador2 = circulo
 
+        corroborarSimbolo()
+    })
+    simboloDos.addEventListener('click', () => {
+        simboloJugador1 = circulo
+        simboloJugador2 = equis
+
+        corroborarSimbolo()
+    })    
 })
 
-// simbolo2.addEventListener('click', () => {
-//     // simboloJugador1 = circulo
-//     // simboloJugador2 = equis
+// aca elijo quien empieza primero
+primerTurno.addEventListener('click', () => {
+    const jugador1 = document.getElementById('jugador1')
+    const jugador2 = document.getElementById('jugador2')
 
-//     // turno.innerHTML = ""
-//     // elegirJugador()
-// })
+    jugador1.addEventListener('click', () => {
+        decirTurno(nombreJugador1)
+    })
+    jugador2.addEventListener('click', () => {
+        decirTurno(nombreJugador2)
+    })
 
+    primerTurno.innerHTML = ""
+    crearTateti()
 
-// aca hago el codigo de quien empieza
-
-const jugador1 = document.getElementById('jugador1')
-const jugador2 = document.getElementById('jugador2')
-
-// jugador1.addEventListener('click', () => {
-//     turnoDelJugador = nombreJugador1
-// })
-
-// jugador2.addEventListener('click', () => {
-//     turnoDelJugador = nombreJugador2
-// })
-
+})
 
